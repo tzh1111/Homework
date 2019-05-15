@@ -58,10 +58,12 @@ int shift()
         cout<<"0/1,no other choice!"<<endl;
         return 0;
     }
-    while(k>25||k<1)
+    cout<<"请设置密钥（1<=k<=25），k=" << endl;
+    cin>>k;
+    if(k>25||k<1)
     {
-        cout<<"请设置密钥（1<=k<=25），k=" << endl;
-        cin>>k;
+        cout<<"要求输入[1,25]范围内的数字！\n"<<endl;
+        return 0;
     }
     cout<<"请输入明文（加密）/密文（解密）：\n"<<endl;
     cin>>result;
@@ -105,6 +107,7 @@ int vigenere()
     char result[100]="\0",c[100]="\0";
     char key[100],temp[100];
     bool flag;
+    gets(temp);
     while(true)
     {
         cout<<"***** please choose *****"<<endl;
@@ -179,6 +182,7 @@ int vigenere()
             //cout<<choose<<endl;
             cout<<"invalid input!"<<endl;
         }
+        gets(temp);
     }
 }
 
@@ -193,7 +197,7 @@ int affine()
         printf("要求k的取值范围是0到26(不含边界值)\n");
         return 0;
     }
-    if(26%k1==0)
+    if(k1%2==0||k1%13==0)
     {
         printf("要求k1与26互素\n");
         return 0;
